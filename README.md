@@ -1,6 +1,6 @@
 # communication-system-simulation
 
-简体中文 | [English](https://github.com/timerring/communication-system-simulation/blob/main/README_en.md)
+简体中文 | [English](https://github.com/timerring/communication-system-simulation/blob/main/README_EN.md)
 
 ## 简介
 
