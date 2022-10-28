@@ -43,6 +43,53 @@
     `-- sendfilter.txt			保存发送滤波器的相关参数
 ```
 
+### MPSK通信系统
+
+```
+.
+|-- Research-on-BER-Performance-of-MPSK		关于MPSK误比特率的研究
+|   |-- BER.m								误比特率计算
+|   |-- ChannelOutput.m						信道输出
+|   |-- Compare.m							比较性能
+|   |-- Constellaion.m						绘制QPSK星座图
+|   |-- Constellaion8.m						绘制8PSK星座图
+|   |-- GrayEncode.m						QPSK格雷码编码
+|   |-- GrayEncode8.m						8PSK格雷码编码
+|   |-- MaxProjection.m						最大投影点准则
+|   |-- MinDistance.m						最小距离准则
+|   |-- MinDistance8.m						最小距离准则
+|   |-- NoiseOutput.m						噪声输出
+|   |-- QBE.m								仿真/理论误比特率曲线
+|   |-- SER.m								误码率计算
+|   |-- ShineUpon.m							QPSK映射函数
+|   |-- ShineUpon8.m						8PSK映射函数
+|   |-- bit.m								随机序列产生
+|   |-- mainStar8.m							绘制8PSK星座图
+|   `-- mainStarQ.m							绘制QPSK星座图
+`-- Research-on-SER-Performance-of-MPSK		关于MPSK误码率的研究
+    |-- Count.m								统计误码个数
+    |-- Map.m								映射函数
+    |-- QPSK(Reference)						QPSK部分，仅作参考，实际通过load引入。
+    |   |-- Binary_signal_sequence.m
+    |   |-- bit_error.m
+    |   |-- exam_1.m
+    |   |-- gaussian_sigma.m
+    |   |-- gray_QPSK_mapping.m
+    |   |-- main.m
+    |   |-- max_projection.m
+    |   |-- min_distance.m
+    |   `-- qpsk_errnum.mat
+    |-- README.md							关于QPSK的说明
+    |-- SetValue.m							赋值函数
+    |-- Untitled.mlx
+    |-- draw.m								星座图绘制
+    |-- judgment.m							判决函数
+    |-- main.m								主函数
+    |-- noise.m								噪声函数
+    |-- qpsk_errnum.mat						loadQPSK信息
+    `-- randnum.m							随机序列产生
+```
+
 ## 效果
 
 ### 数字基带传输系统
@@ -83,9 +130,45 @@
 
   ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221021185218791.png)
 
+### MPSK通信系统
+
+#### 设计框图
+
+![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028153836166.png)
+
+#### 主函数部分
+
++ 星座图绘制
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154515527.png)
+
++ QPSK与8PSK误码率对比部分
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154533922.png)
+
+#### 子函数设计
+
++ 随机比特序列的产生
+
++ 格雷编码序列
+
++ 映射函数
+
++ 噪声生成与叠加输出
+
++ 判决函数
+
++ 星座图绘制
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154902384.png)
+
++ 误码率计算
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154855197.png)
+
 ## 详解文章
 
-Waiting for update
+Coming soon
 
 ## License
 

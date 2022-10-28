@@ -44,6 +44,53 @@ Simulation of several common communication system structures, including digital 
     `-- sendfilter.txt			Save the relevant parameters of the transmission filter
 ```
 
+### MPSK communication system
+
+```
+.
+|-- Research-on-BER-Performance-of-MPSK		Research on MPSK Bit Error Rate
+|   |-- BER.m								Bit Error Rate Calculation
+|   |-- ChannelOutput.m						channel output
+|   |-- Compare.m							Compare performance
+|   |-- Constellaion.m						Draw QPSK constellation diagram
+|   |-- Constellaion8.m						Draw 8PSK constellation diagram
+|   |-- GrayEncode.m						QPSK Gray code encoding
+|   |-- GrayEncode8.m						8PSK Gray code encoding
+|   |-- MaxProjection.m						Maximum Projection Point Criterion
+|   |-- MinDistance.m						Minimum distance criterion
+|   |-- MinDistance8.m						Minimum distance criterion
+|   |-- NoiseOutput.m						Noise output
+|   |-- QBE.m								Simulation/Theoretical Bit Error Rate Curve
+|   |-- SER.m								Symbol Error Rate Calculation
+|   |-- ShineUpon.m							QPSK mapping function
+|   |-- ShineUpon8.m						8PSK mapping function
+|   |-- bit.m								random sequence generation
+|   |-- mainStar8.m							Draw 8PSK constellation diagram
+|   `-- mainStarQ.m							Draw QPSK constellation diagram
+`-- Research-on-SER-Performance-of-MPSK		Research on MPSK Bit Error Rate
+    |-- Count.m								Count the number of errors
+    |-- Map.m								mapping function
+    |-- QPSK(Reference)	  The QPSK part, for reference,is actually imported through load.
+    |   |-- Binary_signal_sequence.m
+    |   |-- bit_error.m
+    |   |-- exam_1.m
+    |   |-- gaussian_sigma.m
+    |   |-- gray_QPSK_mapping.m
+    |   |-- main.m
+    |   |-- max_projection.m
+    |   |-- min_distance.m
+    |   `-- qpsk_errnum.mat
+    |-- README.md							A note on QPSK
+    |-- SetValue.m							assignment function
+    |-- Untitled.mlx
+    |-- draw.m								Constellation chart drawing
+    |-- judgment.m							decision function
+    |-- main.m								main function
+    |-- noise.m								noise function
+    |-- qpsk_errnum.mat						loadQPSK information
+    `-- randnum.m							random sequence generation
+```
+
 ## Effect
 
 ### Digital Baseband Transmission Systems
@@ -84,9 +131,41 @@ Simulation of several common communication system structures, including digital 
 
   ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221021185218791.png)
 
+### MPSK Communication System
+
+#### Design Block Diagram
+
+![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028153836166.png)
+
+#### Main function
+
++ Constellation diagram drawing
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154515527.png)
+
++ Comparison of bit error rate between QPSK and 8PSK
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154533922.png)
+
+#### Subfunction Design
+
++ Generation of random bit sequence
+
++ Gray coding sequence
++ map function
++ Noise generation and overlay output
++ decision function
++ Constellation diagram drawing
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154902384.png)
+
++ Symbol Error Rate Calculation
+
+  ![](https://raw.githubusercontent.com/timerring/picgo/master/picbed/image-20221028154855197.png)
+
 ## Explain the article in detail
 
-Waiting for update
+Coming soon
 
 ## License
 
