@@ -168,7 +168,7 @@
 
 ## 详解文章
 
-[数字基带传输系统设计]()
+[数字基带传输系统设计](https://github.com/timerring/communication-system-simulation/blob/main/Design%20of%20Digital%20Baseband%20Transmission%20System.md)
 
 [MPSK通信系统的设计与性能研究-8PSK]()
 
