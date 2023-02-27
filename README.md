@@ -170,9 +170,17 @@
 
 [数字基带传输系统设计](https://github.com/timerring/communication-system-simulation/blob/main/Design%20of%20Digital%20Baseband%20Transmission%20System.md)
 
-[MPSK通信系统的设计与性能研究-8PSK]()
+[MPSK通信系统的设计与性能研究-8PSK](https://github.com/timerring/communication-system-simulation/blob/main/MPSK%20Communication%20System-8PSK.md)
 
-[MPSK通信系统的设计与性能研究-QPSK]()
+[MPSK通信系统的设计与性能研究-QPSK](https://github.com/timerring/communication-system-simulation/blob/main/MPSK%20Communication%20System-QPSK.md)
+
+
+
+## Tips
+
+1. 如果存在疑问或发现错误，欢迎提Issues交流订正。
+2. 如果遇到图片无法加载的情况，可以考虑使用代理，或者访问[博客网站](https://blog.csdn.net/m0_52316372) 。
+3. 如果发现Tex数学公式展示异常，可以安装插件[GitHub Math Display](https://chrome.google.com/webstore/detail/github-math-display/cgolaobglebjonjiblcjagnpmdmlgmda?hl=zh-CN)，安装后启用插件，刷新网页即可。也可以下载后本地软件打开。
 
 
 

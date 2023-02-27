@@ -165,7 +165,17 @@ Simulation of several common communication system structures, including digital 
 
 ## Explain the article in detail
 
-Coming soon
+[Design of Digital Baseband Transmission System](https://github.com/timerring/communication-system-simulation/blob/main/Design%20of%20Digital%20Baseband%20Transmission%20System.md)
+
+[Design and Performance Research of MPSK Communication System-8PSK](https://github.com/timerring/communication-system-simulation/blob/main/MPSK%20Communication%20System-8PSK.md)
+
+[Design and Performance Research of MPSK Communication System-QPSK](https://github.com/timerring/communication-system-simulation/blob/main/MPSK%20Communication%20System-QPSK.md)
+
+## Tips
+
+1. If you have any questions or find errors, please submit Issues for correction.
+2. If the picture cannot be loaded, you can consider using a proxy, or visit [blog website](https://blog.csdn.net/m0_52316372).
+3. If you find that the display of Tex math formulas is abnormal, you can install the plug-in [GitHub Math Display](https://chrome.google.com/webstore/detail/github-math-display/cgolaobglebjonjiblcjagnpmdmlgmda?hl=zh-CN), after installation To enable the plugin, refresh the page. You can also open the local software after downloading.
 
 ## License
 
