@@ -21,7 +21,6 @@
   - [6.1 比较8PSK与QPSK的Monte Carlo仿真误符号率曲线、理论误符号率曲线差别](#61-比较8psk与qpsk的monte-carlo仿真误符号率曲线理论误符号率曲线差别)
   - [6.2 理论分析8PSK性能比QPSK](#62-理论分析8psk性能比qpsk)
 - [七、问题回顾与总结](#七问题回顾与总结)
-  - [7.1 问题回顾](#71-问题回顾)
 
 
 # MPSK通信系统的设计与性能研究-8PSK
@@ -58,12 +57,16 @@ m=0,1, \ldots, M-1,0 \leq t \leq T \\
 \end{array}
 $$
 我们规定:
+
+
 $$
 \{\begin{array}{l}
 A_{m c}=\cos \frac{2 \pi m}{M} \\
 A_{m s}=\sin \frac{2 \pi m}{M}
 \end{array}, m=0,1, \ldots, M-1.
 $$
+
+
 经过上述分析, 我们不难得出, 这样一个相位调制信号可以看作两个正交载波, 因
 
 此, 数字相位调制信号可以在几何上可用二维向量的形式来表示, 即
@@ -72,12 +75,15 @@ $$
 $$
 
 正交基函数为:
+
+
 $$
 \{\begin{array}{l}
 \psi_{1}(t)=g_{T}(t) \cos 2 \pi f_{c} t \\
 \psi_{2}(t)=-g_{T}(t) \sin 2 \pi f_{c} t
 \end{array}.
 $$
+
 
 
 ## 2.2 信号传输
@@ -545,25 +551,35 @@ $$
 f_{\Theta_{r}}(\theta_{r}) \approx \sqrt{\frac{2 \rho_{s}}{\pi}} \cos \theta_{r} e^{-2 \rho_{s} \sin ^{2} \theta_{r}}
 $$
 若发送相位 0 , 当噪声使接收矢量的相位落在区域 $ -\pi / M<\Theta_{r}<\pi / M$  之外时会发生判 决错误，即
+
+
 $$
 \begin{array}{c}
 P_{e}=1-\int_{-\pi / M}^{\pi / M} f_{\Theta_{r}}(\theta_{r}) d \Theta \approx 1-\int_{-\pi / M}^{\pi / M} \sqrt{\frac{2 \rho_{s}}{\pi}} \cos \theta_{r} e^{-2 \rho_{s} \sin ^{2} \theta_{r}} d \theta_{r} \\
 \approx 2 Q(\sqrt{2 \rho_{s}} \sin \frac{\pi}{M})=2 Q(\sqrt{2 \log _{2} M \rho_{b}} \sin \frac{\pi}{M})
 \end{array}
 $$
+
+
 对于  M=4  ， 码元错误概率应为:
+
+
 $$
 P_{4}=1-(1-P_{2})^{2}=2 Q(\sqrt{\frac{2 \varepsilon_{b}}{N_{0}}})[1-\frac{1}{2} Q(\sqrt{\frac{2 \varepsilon_{b}}{N_{0}}})]
 $$
+
+
 对于  M=8 , 码元错误概率为:
+
+
 $$
 P_{8}=2 Q(\sqrt{2 \frac{(\log _{2} 8) E_{b}}{N_{0}}} \sin \frac{\pi}{8})
 $$
+
+
 很明显, 随着  $\mathrm{M}$  的不断增长,  $\mathrm{Pe}$  也在不断增加。符合实验结果。
 
 # 七、问题回顾与总结
-
-## 7.1 问题回顾
 
 1.对二进制序列格雷编码的问题
 
@@ -572,19 +588,27 @@ $$
 2.关于MPSK误符号率的问题
 
 最开始计算误符号率时, 对于 QPSK 的理论误码率, 我最开始采用的是 MPSK 的统一公式:
+
+
 $$
 \begin{array}{c}
 P_{s, M P S K}=2 Q(\sqrt{2 \frac{E_{s}}{N_{0}}} \sin \frac{\pi}{M}) \\
 =2 Q(\sqrt{2 \frac{k E_{b}}{N_{0}}} \sin \frac{\pi}{M})=2 Q(\sqrt{2 \frac{(\log _{2} M) E_{b}}{N_{0}}} \sin \frac{\pi}{M})
 \end{array}
 $$
+
+
 但是在后续的学习中, 才发现上述公式尽可以在  M>4  的情况下才可以使用, 而对于  $\mathrm{M}=4$  时的系统误码率, 应该采用公式:
+
+
 $$
 \begin{array}{cc}
-P_{4} & =1-P_{e} \\
+P_{4} & =1-P_{e} 
 =2 Q(\sqrt{\frac{2 \varepsilon_{s}}{N_{0}}})[1-\frac{1}{2} Q(\sqrt{\frac{2 \varepsilon_{b}}{N_{0}}})]
 \end{array}
 $$
+
+
 3.关于星座图绘制的问题
 
 在绘制星座图时，初步想法是对于每一个判决分类的样本点采用不同的颜色绘制，但是对于如何针对点进行颜色，线性的绘制，我的初步想法是建立一个颜色-线性的向量，然后对于每个点判决的具体情况找到对应的样本颜色线型，采用数组引用的形式进行属性的赋值，但是随后发现看似简化了绘制过程，实际却在引用时产生很大的工作量，还可能产生错误绘制，因此综合比较下我选择用switch的方法进行情况判断，并对相应的判决点进行绘制。
