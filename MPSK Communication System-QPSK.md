@@ -43,7 +43,7 @@
 
 发送端发送的是一连串离散而随机的二进制比特流，使用PSK载波相位调制的方法，这样发送端发送的消息便包含在了相位中，此种调制方法可以十分有效地节约带宽。
 $$
-u_{m}(t)=A g_{T}(t) \cos \left(2 \pi f_{c} t+\frac{2 \pi m}{M}\right), m=0,1, \ldots, M-1
+u_{m}(t)=A g_{T}(t) \cos (2 \pi f_{c} t+\frac{2 \pi m}{M}), m=0,1, \ldots, M-1
 $$
 其中,  $g_{T}(t)$  是发送滤波器的脉冲形状, 传输信号的频谱特性由它决定。A则是信号 的幅度。在 psk 调制中, 所有的 psk 信号对于所有的  $\mathrm{m}$  都具有相同的能量。能量为:
 $$
@@ -53,43 +53,50 @@ $ \varepsilon_{s}$  代表每个传输符号的能量。
 在本次实验中, 为了方便分析, 我们令  $\mathrm{A}=1$, $g_{T}(t)=\sqrt{\frac{2 \varepsilon_{s}}{T}}, 0 \leq t \leq T$ , 那么, 相应的  $\mathrm{psk}$  调制信号的波形为
 $$
 \begin{array}{c}
-u_{m}(t)=\sqrt{\frac{2 \varepsilon_{s}}{T}} \cos \left(2 \pi f_{c} t+\frac{2 \pi m}{M}\right)=\sqrt{\frac{2 \varepsilon_{s}}{T}}\left(A_{m c} \cos 2 \pi f_{c} t-A_{m s} \cos 2 \pi f_{c} t\right), \\
+u_{m}(t)=\sqrt{\frac{2 \varepsilon_{s}}{T}} \cos (2 \pi f_{c} t+\frac{2 \pi m}{M})=\sqrt{\frac{2 \varepsilon_{s}}{T}}(A_{m c} \cos 2 \pi f_{c} t-A_{m s} \cos 2 \pi f_{c} t), \\
 m=0,1, \ldots, M-1,0 \leq t \leq T
 \end{array}
 $$
 我们规定:
+
+
 $$
-\left\{\begin{array}{l}
+\{\begin{array}{l}
 A_{m c}=\cos \frac{2 \pi m}{M} \\
 A_{m s}=\sin \frac{2 \pi m}{M}
-\end{array}, m=0,1, \ldots, M-1\right.
+\end{array}, m=0,1, \ldots, M-1.
 $$
+
+
 经过上述分析, 我们不难得出, 这样一个相位调制信号可以看作两个正交载波, 因
 
 此, 数字相位调制信号可以在几何上可用二维向量的形式来表示, 即
 $$
-\vec{s}_{m}=\left(\sqrt{\varepsilon_{s}} \cos \frac{2 \pi m}{M}, \sqrt{\varepsilon_{s}} \sin \frac{2 \pi m}{M}\right)
+\vec{s}_{m}=(\sqrt{\varepsilon_{s}} \cos \frac{2 \pi m}{M}, \sqrt{\varepsilon_{s}} \sin \frac{2 \pi m}{M})
 $$
 
 正交基函数为:
+
+
 $$
-\left\{\begin{array}{l}
+\{\begin{array}{l}
 \psi_{1}(t)=g_{T}(t) \cos 2 \pi f_{c} t \\
 \psi_{2}(t)=-g_{T}(t) \sin 2 \pi f_{c} t
-\end{array}\right.
+\end{array}.
 $$
+
 
 
 ## 2.2 信号传输
 
 调制信号在 AWGN 信道传输的时候, 会有噪声混杂进来, 此时输出信号变为:
 $$
-r(t)=u_{m}(t)+n_{c}(t) \cos \left(2 \pi f_{c} t\right)-n_{s}(t) \sin \left(2 \pi f_{c} t\right)
+r(t)=u_{m}(t)+n_{c}(t) \cos (2 \pi f_{c} t)-n_{s}(t) \sin (2 \pi f_{c} t)
 $$
 
 其中,  n_{c}(t)  和  n_{s}(t)  分别是加性噪声的同相分量和正交分量, 之后, 我们将输出信号和 给出的基函数作相关, 则两个相关器的输出为:
 $$
-r=s_{m}+n=\left(\sqrt{\varepsilon_{s}} \cos \frac{2 \pi m}{M}+n_{c}, \sqrt{\varepsilon_{s}} \sin \frac{2 \pi m}{M}+n_{s}\right)
+r=s_{m}+n=(\sqrt{\varepsilon_{s}} \cos \frac{2 \pi m}{M}+n_{c}, \sqrt{\varepsilon_{s}} \sin \frac{2 \pi m}{M}+n_{s})
 $$
 需要注意的是  $n_{c}(t)$  和  $n_{s}(t)$  这两个正交噪声的分量是零均值, 互不相关的高斯随机过程。
 
@@ -99,42 +106,50 @@ $$
 
 最小欧式距离准则判决：求出接收到的信号向量与M个传输向量的欧式距离，选取对应的最小欧式距离的向量，该向量对应的符号即为判决输出符号。此种方法需要掌握距离度量的概念并熟练运用，下面给出关于距离度量具体的理论分析：
 
-在接收消息尚不确定 (即还没有接收到矢量  $\vec{r}$  ) 的情况下, 要使得先验概率为最大, 最好的判决方法就是选择具有最高先验概率  $P\left(\vec{s}_{m}\right)$  的信号; 接受到矢量  $\vec{r}$  后, 其方法与 前者类似, 前者是寻找先验概率的最大值, 此时是寻找后验概率的最大值, 换言之, 选 择使  $P\left(\vec{s}_{m} \mid \vec{r}\right)$  最大的  $\vec{s}_{m}$  ，这个判决准则称为最大后验概率 (MAP) 准则。
+在接收消息尚不确定 (即还没有接收到矢量  $\vec{r}$  ) 的情况下, 要使得先验概率为最大, 最好的判决方法就是选择具有最高先验概率  $P(\vec{s}_{m})$  的信号; 接受到矢量  $\vec{r}$  后, 其方法与 前者类似, 前者是寻找先验概率的最大值, 此时是寻找后验概率的最大值, 换言之, 选 择使  $P(\vec{s}_{m} \mid \vec{r})$  最大的  $\vec{s}_{m}$  ，这个判决准则称为最大后验概率 (MAP) 准则。
 
 根据贝叶斯公式, 后验概率可表示为:
 $$
-P\left(\vec{s}_{m} \mid \vec{r}\right)=\frac{f\left(\vec{r} \mid \vec{s}_{m}\right) P\left(\vec{s}_{m}\right)}{f(\vec{r})}
+P(\vec{s}_{m} \mid \vec{r})=\frac{f(\vec{r} \mid \vec{s}_{m}) P(\vec{s}_{m})}{f(\vec{r})}
 $$
-当  M  个信号先验概率相等, 由于  $f(\vec{r})$  和  $P\left(\vec{s}_{m}\right)$  均为确定的值  $\left(P\left(\vec{s}_{m}\right)=\frac{1}{M}\right)$  。则寻找  $P\left(\vec{s}_{m} \mid \vec{r}\right)$  的最大值就等价于寻找  $f\left(\vec{r} \mid \vec{s}_{m}\right)$  的最大值。此时 MAP 准则简化为  $\mathrm{ML}$  准则。
+当  M  个信号先验概率相等, 由于  $f(\vec{r})$  和  $P(\vec{s}_{m})$  均为确定的值  $(P(\vec{s}_{m})=\frac{1}{M})$  。则寻找  $P(\vec{s}_{m} \mid \vec{r})$  的最大值就等价于寻找  $f(\vec{r} \mid \vec{s}_{m})$  的最大值。此时 MAP 准则简化为  $\mathrm{ML}$  准则。
 
-我们不妨对接收到的矢量  $\vec{r}$  进行简要的分析,  $\vec{r}=\vec{s}_{m}+\vec{n}, \vec{s}_{m}$  是信号矢量,  $\vec{n}$  是 AWGN 信道中的噪声矢量, 噪声矢量的分量  $n_{k}$  服从分布  $N\left(0, \frac{N_{o}}{2}\right)$ , 则  $r_{k}$  服从分布  $N\left(s_{m k}, \frac{N_{o}}{2}\right)$  。
+我们不妨对接收到的矢量  $\vec{r}$  进行简要的分析,  $\vec{r}=\vec{s}_{m}+\vec{n}, \vec{s}_{m}$  是信号矢量,  $\vec{n}$  是 AWGN 信道中的噪声矢量, 噪声矢量的分量  $n_{k}$  服从分布  $N(0, \frac{N_{o}}{2})$ , 则  $r_{k}$  服从分布  $N(s_{m k}, \frac{N_{o}}{2})$  。
 因此
 $$
 \begin{aligned}
-f\left(\vec{r} \mid \vec{s}_{m}\right) & =\prod_{k=1}^{N} \frac{1}{\sqrt{\pi N_{0}}} \mathrm{e}^{-\frac{\left(r_{k}-s_{m k}\right)^{2}}{N_{0}}} \\
-& =\frac{1}{\left(\pi N_{0}\right)^{\frac{N}{2}}} e^{\frac{\left|\vec{r}-\vec{s}_{m}\right|^{2}}{N_{0}}}, m=1,2, \ldots, M
+f(\vec{r} \mid \vec{s}_{m}) & =\prod_{k=1}^{N} \frac{1}{\sqrt{\pi N_{0}}} \mathrm{e}^{-\frac{(r_{k}-s_{m k})^{2}}{N_{0}}} \\
+& =\frac{1}{(\pi N_{0})^{\frac{N}{2}}} e^{\frac{|\vec{r}-\vec{s}_{m}|^{2}}{N_{0}}}, m=1,2, \ldots, M
 \end{aligned}
 $$
 右端取对数有:
 $$
-\ln f\left(\vec{r} \mid \vec{s}_{m}\right)=-\frac{N}{2} \ln \left(\pi N_{0}\right)-\frac{1}{N_{0}} \sum_{k=1}^{N}\left(r_{k}-s_{m k}\right)^{2}
+\ln f(\vec{r} \mid \vec{s}_{m})=-\frac{N}{2} \ln (\pi N_{0})-\frac{1}{N_{0}} \sum_{k=1}^{N}(r_{k}-s_{m k})^{2}
 $$
-上式若要取得最大值, 显而易见  $\sum_{k=1}^{N}\left(r_{k}-s_{m k}\right)^{2}$  需要取最小值。这也是符合我们直观印象的, 信号空间里两个信号点的欧氏距离越小, 说明它们越接近。
+上式若要取得最大值, 显而易见  $\sum_{k=1}^{N}(r_{k}-s_{m k})^{2}$  需要取最小值。这也是符合我们直观印象的, 信号空间里两个信号点的欧氏距离越小, 说明它们越接近。
 
-因此，定义距离度量  $D\left(\vec{r} \mid \vec{s}_{m}\right)$  如下:
+因此，定义距离度量  $D(\vec{r} \mid \vec{s}_{m})$  如下:
 $$
-D\left(\vec{r} \mid \vec{s}_{m}\right)=\sum_{k=1}^{N}\left(r_{k}-s_{m k}\right)^{2}, m=1,2, \ldots, M
+D(\vec{r} \mid \vec{s}_{m})=\sum_{k=1}^{N}(r_{k}-s_{m k})^{2}, m=1,2, \ldots, M
 $$
 (2) 最佳检测器
 
-最佳检测器将收到的信号向量  $\mathrm{r}$  投射到  M  个可能的传输信号向量  $\left\{s_{m}\right\}$  之一上去, 并 选取对应与最大投影的向量。将上述定义的距离度量展开:
+最佳检测器将收到的信号向量  $\mathrm{r}$  投射到  M  个可能的传输信号向量  $\{s_{m}\}$  之一上去, 并 选取对应与最大投影的向量。将上述定义的距离度量展开:
+
+
 $$
-D\left(\vec{r} \mid \vec{s}_{m}\right)=|\vec{r}|^{2}-2 \vec{r} \cdot \vec{s}_{m}+\left|\vec{s}_{m}\right|^{2}, m=1,2, \ldots, M
+D(\vec{r} \mid \vec{s}_{m})=|\vec{r}|^{2}-2 \vec{r} \cdot \vec{s}_{m}+|\vec{s}_{m}|^{2}, m=1,2, \ldots, M
 $$
+
+
 其中,  $|\vec{r}|^{2}$  项对所有的判决度量是等价的的, 我们忽略这一项, 则得到相关度量:
+
+
 $$
-C\left(\vec{r} \mid \vec{s}_{m}\right)=2 \vec{r} \cdot \vec{s}_{m}-\left|\vec{s}_{m}\right|^{2}, m=1,2, \ldots, M
+C(\vec{r} \mid \vec{s}_{m})=2 \vec{r} \cdot \vec{s}_{m}-|\vec{s}_{m}|^{2}, m=1,2, \ldots, M
 $$
+
+
 可以看出, 距离度量越小, 则相关度量越大。即相关度量与距离度量是完全等价的。
 
 ## 2.4 错误概率
@@ -142,8 +157,8 @@ $$
 理论错误概率:
 $$
 \begin{array}{l}
-\text { 8PSK: } \operatorname{erfc}\left(\sqrt{3 \times 10^{\frac{S N R}{10}}} \times \sin \left(\frac{\pi}{8}\right)\right) ; \\
-\text { QPSK: } \operatorname{erfc}\left(\sqrt{10^{\frac{S N R}{10}}}\right) \times\left(1-0.25 \times \operatorname{erfc} \sqrt{10^{\frac{S N R}{10}}}\right)
+\text { 8PSK: } \operatorname{erfc}(\sqrt{3 \times 10^{\frac{S N R}{10}}} \times \sin (\frac{\pi}{8})) ; \\
+\text { QPSK: } \operatorname{erfc}(\sqrt{10^{\frac{S N R}{10}}}) \times(1-0.25 \times \operatorname{erfc} \sqrt{10^{\frac{S N R}{10}}})
 \end{array}
 $$
 实际错误概率:
@@ -219,7 +234,7 @@ end
 
 利用原比特序列求出码元能量，之后根据
 $$
-\vec{s}_{m}=\left(\sqrt{\varepsilon_{s}} \cos \frac{2 \pi m}{M}, \sqrt{\varepsilon_{s}} \sin \frac{2 \pi m}{M}\right)
+\vec{s}_{m}=(\sqrt{\varepsilon_{s}} \cos \frac{2 \pi m}{M}, \sqrt{\varepsilon_{s}} \sin \frac{2 \pi m}{M})
 $$
 
 
